@@ -8,8 +8,15 @@ const languagesTo = document.getElementById('languagesTo')
 const icon = document.getElementById('icon')
 const closeBtn = document.getElementById('close')
 const p = document.querySelector('p')
-
+inputValue.addEventListener('keypress', func)
 btn.addEventListener('click', funcBtn)
+
+function func(e) {
+    if (e.keyCode == 13) {
+        funcBtn()
+    }
+}
+
 
 closeBtn.addEventListener('click', closeFunc)
 
