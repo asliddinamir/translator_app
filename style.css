@@ -155,7 +155,7 @@ footer h3 a:hover{
         flex-direction: column;
     }
     textarea{
-        height: 20vh;
+        height: 15vh;
     }
     #icon{
         display: flex;

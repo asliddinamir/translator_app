@@ -13,6 +13,7 @@ btn.addEventListener('click', funcBtn)
 
 function func(e) {
     if (e.keyCode == 13) {
+        console.log(e.keyCode);
         funcBtn()
     }
 }
