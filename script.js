@@ -12,12 +12,38 @@ inputValue.addEventListener('keypress', func)
 btn.addEventListener('click', funcBtn)
 
 function func(e) {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
         console.log(e.keyCode);
         funcBtn()
     }
 }
 
+function funcBtn() {
+    let translateFrom = languagesFrom.options[languagesFrom.selectedIndex].value
+    let translateTo = languagesTo.options[languagesTo.selectedIndex].value
+    let text = inputValue.value
+    closeBtn.classList.remove('hidden')
+    if (!text) return;
+    translation.setAttribute("placeholder", "Please Wait.....");
+    fetch(`${main_url}${text}&langpair=${translateFrom}|${translateTo}`)
+        .then(a => a.json())
+        .then(b => {
+            console.log(b)
+            translation.value = b.responseData.translatedText
+            console.log(translation.value)
+            b.matches.forEach(b => {
+                if (b.id === 0) {
+                    translation.value = b.translation;
+                }
+            })
+            inputValue.addEventListener("keyup", () => {
+                if (!inputValue.value) {
+                    translation.value = "";
+                    translation.setAttribute("placeholder", "Translation");
+                }
+            });
+        })
+}
 
 closeBtn.addEventListener('click', closeFunc)
 
@@ -54,29 +80,3 @@ languagesTo.addEventListener('change', () => {
     console.log(translateTo);
 })
 
-function funcBtn() {
-    let translateFrom = languagesFrom.options[languagesFrom.selectedIndex].value
-    let translateTo = languagesTo.options[languagesTo.selectedIndex].value
-    let text = inputValue.value
-    closeBtn.classList.remove('hidden')
-    if (!text) return;
-    translation.setAttribute("placeholder", "Please Wait.....");
-    fetch(`${main_url}${text}&langpair=${translateFrom}|${translateTo}`)
-        .then(a => a.json())
-        .then(b => {
-            console.log(b)
-            translation.value = b.responseData.translatedText
-            console.log(translation.value)
-            b.matches.forEach(b => {
-                if (b.id === 0) {
-                    translation.value = b.translation;
-                }
-            })
-            inputValue.addEventListener("keyup", () => {
-                if (!inputValue.value) {
-                    translation.value = "";
-                    translation.setAttribute("placeholder", "Translation");
-                }
-            });
-        })
-}
