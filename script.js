@@ -23,7 +23,6 @@ function funcBtn() {
     let translateFrom = languagesFrom.options[languagesFrom.selectedIndex].value
     let translateTo = languagesTo.options[languagesTo.selectedIndex].value
     let text = inputValue.value
-    closeBtn.classList.remove('hidden')
     if (!text) return;
     translation.setAttribute("placeholder", "Please Wait.....");
     fetch(`${main_url}${text}&langpair=${translateFrom}|${translateTo}`)
