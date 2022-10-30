@@ -12,7 +12,8 @@ inputValue.addEventListener('keypress', func)
 btn.addEventListener('click', funcBtn)
 
 function func(e) {
-    if (e.keyCode === 13) {
+    var key = e.which || e.keyCode || 0;
+    if (key == 13) {
         console.log(e.keyCode);
         funcBtn()
     }
@@ -58,7 +59,7 @@ inputValue.addEventListener("keyup", () => {
     if (inputValue.value) {
         closeBtn.classList.remove('hidden')
     }
-    else{
+    else {
         closeBtn.classList.add('hidden')
     }
 });
