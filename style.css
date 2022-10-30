@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background: #183031
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.card {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: #ccc;
+    margin-block: 1%;
+    font-size: 2rem;
+}
+
+.inputs{
+    display: flex;
+}
+
+textarea{
+    width: 100%;
+    resize: none;
+    height: 50vh;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: white;
+    padding: 1rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    outline: none;
+}
+
+textarea:focus{
+    border: 1px solid rgb(170, 255, 0);
+}
+
+textarea::placeholder{
+    font-family: 'Poppins', sans-serif !important;
+    color: grey;
+    font-size: 1.2rem;
+}
+.first_input{
+    position: relative;
+}
+
+#close{
+    background: red;
+    width: auto;
+    padding: .4rem;
+    padding-block: .2rem;
+    z-index: 1000;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+#input select{
+    background: #2E2E2E;
+    width: 100%;
+    font-family: inherit !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#icon{
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    margin: 1rem;
+    height: 100%;
+}
+
+.btn{
+    background: #7a583c;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background: #4e3b2c;
+}
+
+footer {
+    position: absolute;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background: #121616;
+    padding-block: 1rem;
+    z-index: 1000;
+}
+
+footer h3{
+    font-size: .9rem;
+    color: white;
+    font-weight: 100;
+}
+
+footer h3 a {
+    color: rgb(206, 29, 29);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer h3 a:hover{
+    color: yellowgreen;
+}
+@media(max-width:1200px){
+    .card{
+        width: 90%;
+    }
+}
+
+@media(max-width:700px){
+    .inputs{
+        display: flex;
+        flex-direction: column;
+    }
+    textarea{
+        height: 25vh;
+    }
+    #icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: .5rem;
+    }
+}
